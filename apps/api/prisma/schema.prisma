@@ -1,0 +1,40 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Platform {
+  LICHESS
+  CHESS_COM
+}
+
+// A public external profile. This record does not establish ownership.
+model ChessProfile {
+  id         String   @id @default(cuid())
+  platform   Platform
+  externalId String
+  username   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([platform, externalId])
+  @@index([platform, username])
+}
+
+// Import adapters will validate and normalize game metadata in a later stage.
+model Game {
+  id         String   @id @default(cuid())
+  platform   Platform
+  externalId String
+  pgn        String   @db.Text
+  playedAt   DateTime
+  createdAt  DateTime @default(now())
+
+  @@unique([platform, externalId])
+  @@index([platform, playedAt])
+}

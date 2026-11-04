@@ -30,6 +30,7 @@ coverage/
 .vite/
 .turbo/
 *.tsbuildinfo
+/apps/api/src/generated/
 playwright-report/
 test-results/
 *.log
