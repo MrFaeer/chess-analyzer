@@ -1,0 +1,58 @@
+# Local project planning and assistant resources
+/skills/
+/docs/PLAN.md
+/docs/local/
+/AGENTS.md
+/.agents/
+/.codex/
+/.claude/
+/.cursor/
+/.local/
+
+# Dependencies and package manager caches
+node_modules/
+.pnpm-store/
+.npm/
+
+# Secrets and local environment files (keep safe examples)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+/.aws/
+
+# Build, test, and tool outputs
+dist/
+build/
+coverage/
+.vite/
+.turbo/
+*.tsbuildinfo
+playwright-report/
+test-results/
+*.log
+
+# Local databases, imports, and analysis artifacts
+/data/
+/uploads/
+/tmp/
+/temp/
+/artifacts/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Editor and operating system files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep source, migrations, lockfiles, Docker configuration,
+# and public documentation under version control.
