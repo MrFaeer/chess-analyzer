@@ -11,7 +11,9 @@
     "db:validate": "prisma validate",
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:check": "node scripts/check-db.cjs",
+    "test:auth": "node scripts/check-auth.cjs"
   },
   "dependencies": {
     "@nestjs/common": "^12.3.3",
@@ -25,6 +27,7 @@
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^22.0.0",
     "prisma": "7.10.1"
   }

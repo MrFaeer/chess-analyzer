@@ -2,8 +2,12 @@
   "name": "chess-analyzer",
   "version": "0.1.0",
   "private": true,
-  "workspaces": ["apps/*"],
-  "engines": { "node": "^22.12.0 || >=24.0.0" },
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": "^22.12.0 || >=24.0.0"
+  },
   "scripts": {
     "dev": "concurrently -k -n api,web \"npm run dev -w @chess-analyzer/api\" \"npm run dev -w @chess-analyzer/web\"",
     "build": "npm run db:generate && npm run build --workspaces",
@@ -13,8 +17,13 @@
     "db:migrate": "npm run db:migrate -w @chess-analyzer/api",
     "db:deploy": "npm run db:deploy -w @chess-analyzer/api",
     "db:studio": "npm run db:studio -w @chess-analyzer/api",
-    "db:up": "docker compose up -d db",
-    "db:down": "docker compose down"
+    "db:up": "docker compose up -d --wait db",
+    "db:down": "docker compose down",
+    "db:check": "npm run db:generate && npm run build -w @chess-analyzer/api && npm run db:check -w @chess-analyzer/api",
+    "test:auth": "npm run db:generate && npm run build -w @chess-analyzer/api && npm run test:auth -w @chess-analyzer/api"
   },
-  "devDependencies": { "concurrently": "^9.2.1", "typescript": "~5.9.3" }
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "~5.9.3"
+  }
 }
